@@ -1,2 +1,16 @@
 # golang-tw2020
-Some golang training stuff
+Golang Basics training
+
+### Order of examples
+* hello-world
+* types
+* other-types
+* control-flow
+* methods
+* functions
+* interfaces
+* error-handling
+* goroutines
+
+
+
