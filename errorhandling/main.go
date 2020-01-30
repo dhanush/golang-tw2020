@@ -22,6 +22,7 @@ func main() {
 	n := numbers{-11, 2, 3}
 	if o, err := n.add(); err != nil {
 		fmt.Println(err.Error())
+		panic(err)
 	} else {
 		fmt.Println(o)
 	}

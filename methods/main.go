@@ -9,6 +9,7 @@ type numbers struct {
 }
 
 func (n numbers) add() int {
+	fmt.Printf("%p\n", &n)
 	return n.one + n.two + n.three
 }
 
@@ -18,8 +19,10 @@ func (n *numbers) increaseOne(a int) {
 
 func main() {
 	n := numbers{1, 2, 3}
+	fmt.Printf("%p\n", &n)
 	o := n.add()
 	fmt.Println(o)
+	fmt.Println(n)
 
 	n.increaseOne(10)
 	fmt.Println(n.one)

@@ -6,7 +6,7 @@ type shape interface {
 	area() float32
 }
 
-type rectange struct {
+type rectangle struct {
 	length  float32
 	breadth float32
 }
@@ -15,7 +15,7 @@ type circle struct {
 	radius float32
 }
 
-func (r rectange) area() float32 {
+func (r rectangle) area() float32 {
 	return r.length * r.breadth
 }
 
@@ -29,8 +29,11 @@ func areaCalculation(shapes ...shape) {
 	}
 }
 
+type ABC struct {
+}
+
 func emptyInterface(x interface{}) {
-	fmt.Println("Printing x", x)
+	// fmt.Println("Printing x", x)
 	// str := x.(string)
 	// fmt.Println("Printing x value as string", str)
 
@@ -41,13 +44,15 @@ func emptyInterface(x interface{}) {
 		fmt.Println("Printing x value as int", x.(int))
 	case float32:
 		fmt.Println("Printing x value as float", x.(float32))
+	case ABC:
+		fmt.Println("Printing x value as ABC", x.(ABC))
 	}
 }
 
 func main() {
 
 	var r, c shape
-	r = rectange{length: 1.2, breadth: 2.3}
+	r = rectangle{length: 1.2, breadth: 2.3}
 	fmt.Println(r.area())
 
 	c = circle{4.5}
@@ -61,5 +66,5 @@ func main() {
 	emptyInterface("dhanush")
 	emptyInterface("1")
 	emptyInterface(1)
-	emptyInterface(3)
+	emptyInterface(float32(3.3))
 }

@@ -20,19 +20,22 @@ func main() {
 		}
 	}
 
-	for _, prime := range primes {
+	for i, prime := range primes {
+		fmt.Println(i)
 		if prime == 23 {
 			fmt.Println("I found 23")
 		}
 	}
 
-	x := 0
+	x := 3
 
 	switch x {
 	case 0:
 		fmt.Printf("Printing 0\n")
 	case 10:
 		fmt.Printf("Printing 10\n")
+	default:
+		fmt.Printf("Printing def\n")
 	}
 
 }
