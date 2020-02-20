@@ -10,6 +10,8 @@ func main() {
 		fmt.Println("bye bye")
 	}()
 
+	// defer os.Remove("file")
+
 	for i := 0; i < len(primes); i++ {
 		if i == 23 {
 			fmt.Println("I found 23")
@@ -23,11 +25,16 @@ func main() {
 	for i, prime := range primes {
 		fmt.Println(i)
 		if prime == 23 {
-			fmt.Println("I found 23")
+			fmt.Println("I found 23 again")
+			break
+		} else if prime == 29 {
+			fmt.Println("I found 29 but will i continue?")
+			continue
 		}
+
 	}
 
-	x := 3
+	x := 0
 
 	switch x {
 	case 0:
@@ -35,7 +42,7 @@ func main() {
 	case 10:
 		fmt.Printf("Printing 10\n")
 	default:
-		fmt.Printf("Printing def\n")
+		fmt.Printf("Printing default\n")
 	}
 
 }

@@ -12,7 +12,9 @@ func add(x, y int) int {
 
 func addChan(x, y int, ch chan int) {
 	o := x + y
-	time.Sleep(time.Second * 1)
+	if x == 1 {
+		time.Sleep(time.Second * 5)
+	}
 	ch <- o
 }
 
@@ -25,37 +27,37 @@ func addChan10(x, y int, ch chan int) {
 
 func main() {
 	// normal call
-	o := add(1, 2)
-	fmt.Println(o)
-	// goroutine
-	go add(3, 4)
+	// o := add(1, 2)
+	// fmt.Println(o)
+	// // goroutine
+	// go add(3, 4)
 
-	time.Sleep(1)
+	// time.Sleep(3)
 
-	// goroutine in a loop
-	for i := 0; i < 10; i++ {
-		add(i, i+1)
-	}
-	time.Sleep(2 * time.Second)
+	// // goroutine in a loop
+	// for i := 0; i < 10; i++ {
+	// 	add(i, i+1)
+	// }
+	// time.Sleep(2 * time.Second)
 
-	// unbuffered channel
+	// // unbuffered channel
 
-	ch := make(chan int)
-	go addChan(1, 1, ch)
-	go addChan(3, 1, ch)
-	go addChan(4, 1, ch)
+	// ch := make(chan int)
+	// go addChan(1, 1, ch)
+	// go addChan(3, 1, ch)
+	// go addChan(4, 1, ch)
 	// o := <-ch
-	fmt.Println(<-ch)
-	fmt.Println(<-ch)
-	fmt.Println(<-ch)
+	// fmt.Println(o)
+	// fmt.Println(<-ch)
+	// fmt.Println(<-ch)
 
-	// buffered channels
+	// // buffered channels
 
 	ch2 := make(chan int, 2)
 	go addChan(1, 1, ch2)
 	go addChan(1, 1, ch2)
-	go addChan(1, 1, ch2)
-	go addChan(1, 1, ch2)
+	go addChan(4, 5, ch2)
+	go addChan(3, 2, ch2)
 	a1 := <-ch2
 	fmt.Println(a1)
 	a1 = <-ch2
@@ -66,11 +68,11 @@ func main() {
 	fmt.Println(a1)
 
 	//for-range
-	ch = make(chan int, 10)
+	// ch := make(chan int, 10)
 
-	go addChan10(10, 20, ch)
+	// go addChan10(10, 20, ch)
 
-	for i := range ch {
-		fmt.Println(i)
-	}
+	// for i := range ch {
+	// 	fmt.Println(i)
+	// }
 }
