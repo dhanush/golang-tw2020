@@ -15,7 +15,8 @@ var addBy10 = func(x, y int) int {
 }
 
 func main() {
-	// fmt.Println(add(12, 12))
+	fmt.Println(add(12, 12))
+	fmt.Println("Hello")
 
 	// o := addExtra(10, 20, addBy10)
 	// fmt.Println(o)
